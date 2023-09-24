@@ -7,6 +7,7 @@ const jwtSettings = require('../../constants/jwtSetting');
 module.exports = {
   login: async (req, res, next) => {
     try {
+      console.log('gaaaaaaaaaaaaaaaaaaaay')
       const {
         _id,
         firstName,

@@ -20,7 +20,6 @@ const passportVerifyToken = new JwtStrategy(
       }).select('-password');
 
       console.log('««««« user »»»»»', user);
-      
       if (!user) return done(null, false);
 
       return done(null, user);
@@ -38,12 +37,9 @@ const passportVerifyAccount = new LocalStrategy({ usernameField: 'email' },
         email,
       });
 
-      console.log('««««« user »»»»»', user);
-
       if (!user) return done(null, false);
 
       const isCorrectPass = await user.isValidPass(password);
-      console.log('««««« isCorrectPass »»»»»', isCorrectPass);
 
       user.password = undefined;
 
