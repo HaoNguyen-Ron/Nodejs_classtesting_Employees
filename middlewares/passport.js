@@ -19,7 +19,6 @@ const passportVerifyToken = new JwtStrategy(
         isDeleted: false,
       }).select('-password');
 
-      console.log('««««« user »»»»»', user);
       if (!user) return done(null, false);
 
       return done(null, user);

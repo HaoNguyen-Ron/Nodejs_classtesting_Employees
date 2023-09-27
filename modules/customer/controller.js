@@ -103,7 +103,6 @@ const create = async function (req, res, next) {
 
 /** UPDATE */
 const update = async function (req, res, next) {
-    console.log('««««« saadas »»»»»');
     try {
       const { id } = req.params;
   
