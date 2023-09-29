@@ -59,6 +59,11 @@ const routes = [
         validator: [],
         router: require('./modules/question/router')
     },
+    {
+        path: '/Media',
+        validator: [passport.authenticate('jwt', { session: false })],
+        router: require('./modules/media/router')
+    },
 ];
 
 module.exports = routes
