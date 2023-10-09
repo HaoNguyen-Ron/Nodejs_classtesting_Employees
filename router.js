@@ -15,6 +15,9 @@
 // app.use('/employees', employeesRouter);
 // app.use('/customers', customerRouter);
 // app.use('/orders', orderRouter);
+
+//ADD passport control for TOKEN: passport.authenticate('jwt', { session: false })
+
 const passport = require('passport');
 
 
@@ -26,7 +29,7 @@ const routes = [
     },
     {
         path: '/products',
-        validator: [passport.authenticate('jwt', { session: false })],
+        validator: [],
         router: require('./modules/product/router')
     },
     {

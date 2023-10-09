@@ -1,5 +1,9 @@
 const { fuzzySearch } = require('../../utils');
 
+const axios = require('axios');
+
+require('dotenv').config();
+
 const Product = require('./model');
 const Category = require('./../category/model')
 const Supplier = require('./../supplier/model')
@@ -227,6 +231,10 @@ module.exports = {
       );
 
       if (updatedProduct) {
+         // revalidate
+         const responsive = await axios.get(`http://localhost:3000/api/revalidate-product-details?secret=${process.env.SECRET_REVALIDATION_KEY}&id=${id}`)
+
+         console.log('««««« responsive »»»»»', responsive);
         return res.status(200).json({
           message: "Update successful",
           payload: updatedProduct,
